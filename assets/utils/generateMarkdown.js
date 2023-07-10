@@ -1,40 +1,38 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
 
-// If there is no license, return an empty string
-function renderLicenseBadge({license , username, repo}) {
-  if(license){
-    return `https://img.shields.io/github/license/${username}/${repo}`
-  } else {
+function renderLicenseBadge(data) {
+  if (data.license === "Apache license 2.0") {
+    return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]"
+  } else if (data.license === "GNU General Public License v3.0") {
+    return "[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)]";
+  } else if (data.license === "Mozilla Public License 2.0") {
+    return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)]";
+  } else if (data.license === "MIT") {
+    return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]";
+  } else if (data.license === "None") {
     return "";
   }
 }
 
-function renderLicenseLink({license}) {
-  if (license === "Apache license 2.0") {
+function renderLicenseLink(data) {
+  if (data.license === "Apache license 2.0") {
     return "(https://opensource.org/licenses/Apache-2.0)"
-  } else if (license === "GNU General Public License v3.0") {
+  } else if (data.license === "GNU General Public License v3.0") {
     return "(https://www.gnu.org/licenses/gpl-3.0)";
-  } else if (license === "Open Software License 3.0") {
-    return "(https://opensource.org/license/osl-3-0-php)";
-  } else if (license === "Mozilla Public License 2.0") {
+  } else if (data.license === "Mozilla Public License 2.0") {
     return "(https://opensource.org/licenses/MPL-2.0)";
-  } else if (license === "MIT") {
+  } else if (data.license === "MIT") {
     return "(https://opensource.org/licenses/MIT)";
-  } else if (license === "None") {
+  } else if (data.license === "None") {
     return "";
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection({license}) {}
+function renderLicenseSection(data) {
+  
+}
 
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  const link = renderLicenseLink(data);
-  const badge = renderLicenseBadge(data);
-  const licenseSection = renderLicenseSection(data)
-  return `# ${data.title}
+  return `# ${data.title} [${renderLicenseBadge(data)}](${renderLicenseLink(data)})
 
   ## Description
   
@@ -64,7 +62,7 @@ function generateMarkdown(data) {
 
   ## License
 
-  ${licenseSection}
+  ${renderLicenseSection(data)}
 
   ## How to Contribute
   
@@ -77,7 +75,7 @@ function generateMarkdown(data) {
   ## Questions
   What is your Github?
   
-  My Github can be found at [${data.username}]
+  My Github can be found at [${data.username}](https://${data.username}.github.com)
 
   If you have any further questions you can contact me at my email at: [${data.email}](mailto:${data.email})
 
@@ -85,8 +83,4 @@ function generateMarkdown(data) {
 `;
 }
 
-module.exports = {
-  badges,
-  generateMarkdown,
-
-}
+module.exports = generateMarkdown;
