@@ -64,6 +64,8 @@ const questions = [
     }
 ];
 
+
+// this function writes the markdown file to the system in the same directory as the index.js file. this function is invoked after the user completes all the questions
 function writeToFile(fileName, data) {
     let mdText = expf.generateMarkdown(data);
     fs.writeFile(`${fileName}.md`, mdText, (err) => 
@@ -71,6 +73,7 @@ function writeToFile(fileName, data) {
     )
 }
 
+// the init function will run inquirer and prompt through the questions array above and return an object that is used to dynamically generate the information on the markdown file.
 function init() {
     inquirer
         .prompt(questions)

@@ -1,3 +1,5 @@
+
+// this functions looks at what license is selected by the user and generates the appropriate license image and text that is going to be used by markdown document
 function renderLicenseBadge(data) {
   if (data.license === "Apache license 2.0") {
     return "[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]";
@@ -12,6 +14,7 @@ function renderLicenseBadge(data) {
   }
 }
 
+//this functions loos at the license selected and generates a clickable linked attatched to the badge that takes the user to the webpage with the license info.
 function renderLicenseLink(data) {
   if (data.license === "Apache license 2.0") {
     return "(https://opensource.org/licenses/Apache-2.0)";
@@ -26,6 +29,7 @@ function renderLicenseLink(data) {
   }
 }
 
+// this function generates the license section description and adds what license was selected.
 function renderLicenseSection(data) {
   if (data.license !== "None") {
     return `This project is licensed under the ${data.license}`;
@@ -34,6 +38,8 @@ function renderLicenseSection(data) {
   }
 }
 
+
+// this function uses a template literal and generates the markdown file based on the format below. It further dynamically generates diffent sections depending on the choices made by the user. The badge image will change and it will also generate clickable links for Github and an email for the user
 function generateMarkdown(data) {
   return `# ${data.title} \n
   ${renderLicenseBadge(data)}${renderLicenseLink(data)}
