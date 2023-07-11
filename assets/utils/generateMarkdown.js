@@ -77,9 +77,8 @@ function generateMarkdown(data) {
   ${data.tests}
 
   ## Questions
-  What is your Github?
   
-  My Github can be found at [${data.username}](https://${
+  My work can be found at [${data.username}](https://${
     data.username
   }.github.com)
 
