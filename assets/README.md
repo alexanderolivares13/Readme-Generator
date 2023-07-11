@@ -22,7 +22,8 @@
   
   ## Usage
 
-  Navigate to the Github repo at [Readme Generator](https://www.github.com/Readme-Generator)  <br>  Clone the repository and navigate to the ``` Readme-Generator/assets ``` folder in your terminal/bash. Laslty run the  <br>  ``` node index.js ``` command to get started and follow the series of prompted questions
+  Navigate to the Github repo at [Readme Generator](https://www.github.com/Readme-Generator)  <br>  Clone the repository and navigate to the ``` Readme-Generator/assets ``` folder in your terminal/bash. Laslty run the  <br>  ``` node index.js ``` command to get started and follow the series of prompted questions.  <br>  
+  ![CLI Program](./images/cli%20program.png)
 
   ## Credits
   
