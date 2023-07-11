@@ -68,7 +68,7 @@ const questions = [
 // this function writes the markdown file to the system in the same directory as the index.js file. this function is invoked after the user completes all the questions
 function writeToFile(fileName, data) {
     let mdText = expf.generateMarkdown(data);
-    fs.writeFile(`${fileName}.md`, mdText, (err) => 
+    fs.writeFile(`Sample${fileName}.md`, mdText, (err) => 
     err ? console.log(err) : console.log('Success!')
     )
 }
