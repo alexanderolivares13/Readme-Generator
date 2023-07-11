@@ -5,7 +5,7 @@ function renderLicenseBadge(data) {
     return "[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)]";
   } else if (data.license === "Mozilla Public License 2.0") {
     return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)]";
-  } else if (data.license === "MIT") {
+  } else if (data.license === "MIT License") {
     return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]";
   } else if (data.license === "None") {
     return "";
@@ -78,9 +78,7 @@ function generateMarkdown(data) {
 
   ## Questions
   
-  My work can be found at [${data.username}](https://${
-    data.username
-  }.github.com)
+  My work can be found on Github at [${data.username}](https://www.github.com/${data.username})
 
   If you have any further questions you can contact me at my email at: [${
     data.email

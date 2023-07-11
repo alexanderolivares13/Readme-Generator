@@ -41,10 +41,16 @@ const questions = [
         name:"license",
     },
     {
-        message:"How can users contribute to your project?",
+        message:"How can users contribute to your project?\n(Press Enter if not applicable)",
         default: "N/A",
         type: "input",
         name:"contributions",
+    },
+    {
+        message:"Are there any commands to test your project?\n(Press Enter if not applicable)",
+        type: "input",
+        default: "N/A",
+        name:"tests",
     },
     {
         message:"What is your Github username?",
@@ -58,7 +64,6 @@ const questions = [
     }
 ];
 
-// TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     let mdText = expf.generateMarkdown(data);
     fs.writeFile(`${fileName}.md`, mdText, (err) => 
@@ -66,7 +71,6 @@ function writeToFile(fileName, data) {
     )
 }
 
-// TODO: Create a function to initialize app
 function init() {
     inquirer
         .prompt(questions)
